@@ -1,0 +1,113 @@
+:root {
+	--indicator1-width: 5px;
+	--size: 400px;
+}
+
+body {
+	background: black;
+	overflow: hidden;
+}
+
+.clock {
+	width: var(--size);
+	height: var(--size);
+	border-radius: 50%;
+	position: relative;
+	box-shadow: 0px 0px 100px rgba(255,255,255,.8);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+#background {
+	width: var(--size);
+	height: var(--size);
+	/*source https://earthobservatory.nasa.gov/blogs/elegantfigures/2010/09/27/g-projector/*/
+	background: url("natural_earth_orthographic_np.jpg");
+	background-size: contain;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border-radius: 50%;
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+#shade {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	box-shadow:
+	 inset 0px -100px 150px rgba(0,0,0,.7),
+	 inset -20px 20px 20px rgba(255,255,255, .3),
+	 inset -5px 5px 5px rgba(255,255,255, .5);
+	/*transition: linear transform 1s;*/
+	position: absolute;
+	top:0;
+	left: 0;
+}
+
+.tick {
+	width: 2px;
+	height: 5px;
+	background: black;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 1px rgba(0,0,0,1);
+}
+
+.tickwrapper {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#half {
+	width: 100%;
+	height: 50%;
+	position: absolute;
+	top: 50%;
+	border-bottom-right-radius: calc(var(--size) / 2);
+	border-bottom-left-radius: calc(var(--size) / 2);
+
+	background: rgba(0,0,100, .0);
+}
+
+.indicator {
+	width: 10px;
+	border-radius: 50%;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	height: calc(var(--size) / 2 + var(--indicator1-width));
+	background: black;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 3px rgba(0,0,0,.8);
+}
+
+.indicatorwrapper {
+	width: 100%;
+	height: 100%;
+	transform: rotate(20deg);
+	/*transition: linear transform 1s;*/
+}
+
+.star {
+	top: 10px;
+	left: 10px;
+	width: 1px;
+	height: 1px;
+	border-radius: 50%;
+	background: rgba(255,255,255, .8);
+	box-shadow: 0 0 4px white;
+	position: absolute;
+}
+
+#starwrapper {
+	position: relative;
+	width: 100%
+	height: 100%;
+	overflow: hidden;
+}
