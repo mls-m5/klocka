@@ -3,6 +3,10 @@
 var indicator1 = document.getElementById("indicator1");
 var clock = document.getElementById("clock");
 var background = document.getElementById("background");
+var moon = document.getElementById("moon");
+var sun = document.getElementById("sun");
+var sky = document.getElementById("sky");
+
 
 function updateClock() {
 	var date = new Date;
@@ -16,7 +20,12 @@ function updateClock() {
 	indicator1.style.transform="rotate(" + angle +  "deg)";	
 	background.style.transform="rotate(" + (-angle + 180) +  "deg)";	
 
-
+	var moonAmount = 1/2 - Math.cos(angle / 180 * Math.PI)/2;
+	var sunAmount = 1/2 + Math.cos(angle / 180 * Math.PI)/2;
+	var skyAmount = Math.min(1, sunAmount * 2);
+	moon.style.bottom = "calc(" + (moonAmount * 100 - 20) + "% - 50px)";
+	sun.style.bottom = "calc(" + (sunAmount * 100 - 20) + "% - 50px)";
+	sky.style.opacity = skyAmount;
 }
 
 updateClock();
